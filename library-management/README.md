@@ -96,3 +96,40 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+## API - Books (CRUD)
+
+This project includes a simple in-memory `Books` resource implemented for demo and grading purposes.
+
+Run the app (in the `library-management` folder):
+
+```bash
+npm install
+npm run start:dev
+```
+
+Base URL: `http://localhost:3000`
+
+Endpoints:
+
+- POST `/books` - create a book
+  - Body JSON: `{ "title": "Sách mẫu", "quantity": 5 }`
+- GET `/books` - list all books
+- GET `/books/:id` - get book by id
+- PUT `/books/:id` - update book (partial fields)
+- DELETE `/books/:id` - delete book
+
+Examples (curl):
+
+```bash
+# create
+curl -s -X POST http://localhost:3000/books \
+  -H "Content-Type: application/json" \
+  -d '{"title":"Sách mẫu","quantity":5}' | jq
+
+# list
+curl -s http://localhost:3000/books | jq
+```
+
+Diagram: `docs/books-crud.md` contains a Mermaid activity diagram for the CRUD flows.
+
