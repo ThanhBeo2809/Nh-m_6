@@ -191,6 +191,35 @@ curl -s http://localhost:3000/borrowings | jq
 
 See the activity diagram in `docs/borrowing-crud.md` for the CRUD flow.
 
+## API - Readers (CRUD)
+
+This project includes a simple in-memory `Readers` resource implemented for demo and grading.
+
+Base URL: `http://localhost:3000`
+
+Endpoints:
+
+- POST `/readers` - create a reader
+  - Body JSON: `{ "name": "Nguyễn Văn A", "email": "nva@example.com", "phone": "0123456789" }`
+- GET `/readers` - list all readers
+- GET `/readers/:id` - get reader by id
+- PUT `/readers/:id` - update reader (partial fields)
+- DELETE `/readers/:id` - delete reader
+
+Examples (curl):
+
+```bash
+# create
+curl -s -X POST http://localhost:3000/readers \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Nguyễn Văn A","email":"nva@example.com","phone":"0123456789"}' | jq
+
+# list
+curl -s http://localhost:3000/readers | jq
+```
+
+See the activity diagram in `docs/readers-crud.md` for the CRUD flow.
+
 ## Database SQL
 
 The repository includes a SQL file for the project schema: `QuanLyThuVien.sql` (located in the `library-management` folder).
