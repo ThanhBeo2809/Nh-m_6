@@ -1,3 +1,5 @@
+![Borrowing CRUD diagram](borrowing-crud.png)
+
 ## Borrowing CRUD Activity Diagram
 
 ```mermaid
