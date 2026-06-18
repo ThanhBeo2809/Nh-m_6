@@ -1,16 +1,16 @@
 flowchart TD
   Start([Start]) --> Create{Create ?}
-  Create -->|Yes| CreateAction[Create borrowing record<br/> (POST /borrowings)] --> Decision1
+  Create -->|Yes| CreateAction[Create borrowing record<br/>POST /borrowings] --> Decision1
   Create -->|No| Read{Read ?}
 
   Read -->|List| ListAction[GET /borrowings] --> Decision1
   Read -->|Single| SingleAction[GET /borrowings/:id] --> Decision1
 
   Decision1 --> Update{Update ?}
-  Update -->|Yes| UpdateAction[Update record<br/> (PUT /borrowings/:id)] --> Decision2
+  Update -->|Yes| UpdateAction[Update record<br/>PUT /borrowings/:id] --> Decision2
   Update -->|No| Delete{Delete ?}
 
-  Delete -->|Yes| DeleteAction[Delete record<br/> (DELETE /borrowings/:id)] --> Decision2
+  Delete -->|Yes| DeleteAction[Delete record<br/>DELETE /borrowings/:id] --> Decision2
   Delete -->|No| Decision2
 
   Decision2 --> End([End])
