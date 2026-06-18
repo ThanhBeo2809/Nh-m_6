@@ -1,3 +1,43 @@
+## Books CRUD - Activity Diagram
+
+```mermaid
+flowchart TD
+  Start([Start]) --> Create["Create Book\n(POST /books)"]
+  Create --> VerifyCreate{Valid Data?}
+  VerifyCreate -- Yes --> StoreCreate[Store in memory/db]
+  StoreCreate --> ReturnCreate[Return created Book]
+  VerifyCreate -- No --> ReturnCreateErr[Return 400 Bad Request]
+
+  Start --> ReadAll["Read All Books\n(GET /books)"]
+  ReadAll --> ReturnAll[Return list of books]
+
+  Start --> ReadOne["Read One Book\n(GET /books/:id)"]
+  ReadOne --> Found?{Found?}
+  Found? -- Yes --> ReturnOne[Return book]
+  Found? -- No --> Return404[Return 404 Not Found]
+
+  Start --> Update["Update Book\n(PUT /books/:id)"]
+  Update --> FoundUpd?{Found?}
+  FoundUpd? -- Yes --> ApplyUpd[Apply updates]
+  ApplyUpd --> ReturnUpd[Return updated book]
+  FoundUpd? -- No --> Return404
+
+  Start --> Delete["Delete Book\n(DELETE /books/:id)"]
+  Delete --> FoundDel?{Found?}
+  FoundDel? -- Yes --> Remove[Remove book]
+  Remove --> ReturnDel[Return deleted book]
+  FoundDel? -- No --> Return404
+
+  ReturnCreate --> End([End])
+  ReturnCreateErr --> End
+  ReturnAll --> End
+  ReturnOne --> End
+  Return404 --> End
+  ReturnUpd --> End
+  ReturnDel --> End
+```
+
+Save this diagram as the algorithm flow for Books CRUD.
 **Books CRUD Activity Diagram**
 
 ```mermaid

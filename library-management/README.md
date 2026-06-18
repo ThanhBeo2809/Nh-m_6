@@ -132,4 +132,31 @@ curl -s http://localhost:3000/books | jq
 ```
 
 Diagram: `docs/books-crud.md` contains a Mermaid activity diagram for the CRUD flows.
+### Books CRUD API
+
+Endpoints (in-memory storage):
+
+- Create book
+  - Method: POST
+  - URL: `http://localhost:3000/books`
+  - Body JSON: `{ "title": "Sách mẫu", "quantity": 5 }`
+
+- Read all books
+  - Method: GET
+  - URL: `http://localhost:3000/books`
+
+- Read one book
+  - Method: GET
+  - URL: `http://localhost:3000/books/:id`
+
+- Update book
+  - Method: PUT
+  - URL: `http://localhost:3000/books/:id`
+  - Body JSON: partial fields, e.g. `{ "quantity": 10 }`
+
+- Delete book
+  - Method: DELETE
+  - URL: `http://localhost:3000/books/:id`
+
+Refer to `docs/books-crud.md` for the activity diagram of the CRUD flow.
 
