@@ -12,3 +12,13 @@ CREATE TABLE Readers (
     FullName VARCHAR(100) NOT NULL,
     Phone VARCHAR(20)
 );
+
+CREATE TABLE IF NOT EXISTS Borrowings (
+    BorrowID INT AUTO_INCREMENT PRIMARY KEY,
+    ReaderID INT NOT NULL,
+    BookID INT NOT NULL,
+    BorrowDate DATE NOT NULL,
+    ReturnDate DATE NULL,
+    CONSTRAINT FK_Borrow_Reader FOREIGN KEY (ReaderID) REFERENCES Readers(ReaderID),
+    CONSTRAINT FK_Borrow_Book FOREIGN KEY (BookID) REFERENCES Books(BookID)
+);
