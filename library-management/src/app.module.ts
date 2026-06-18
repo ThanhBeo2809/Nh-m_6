@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { BooksModule } from './books/books.module';
+import { BorrowingModule } from './borrowing/borrowing.module';
 
 @Module({
   imports: [
