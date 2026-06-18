@@ -9,7 +9,7 @@ import { BooksModule } from './books/books.module';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: '201006',
+      password: 'root',
       database: 'QuanLyThuVien',
       autoLoadEntities: true,
       synchronize: true,
