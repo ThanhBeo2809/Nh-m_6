@@ -160,3 +160,49 @@ Endpoints (in-memory storage):
 
 Refer to `docs/books-crud.md` for the activity diagram of the CRUD flow.
 
+## API - Borrowings (CRUD)
+
+This project includes a simple in-memory `Borrowing` resource for demo and grading purposes.
+
+Base URL: `http://localhost:3000`
+
+Endpoints:
+
+- POST `/borrowings` - create a borrowing record
+  - Body JSON: `{ "bookId": 1, "readerId": 2, "borrowDate": "2026-06-18T00:00:00Z", "expectedReturnDate": "2026-07-02T00:00:00Z" }`
+- GET `/borrowings` - list all borrowing records
+- GET `/borrowings/:id` - get borrowing record by id
+- PUT `/borrowings/:id` - update borrowing record (partial fields)
+- DELETE `/borrowings/:id` - delete borrowing record
+
+Examples (curl):
+
+```bash
+# create
+curl -s -X POST http://localhost:3000/borrowings \
+  -H "Content-Type: application/json" \
+  -d '{"bookId":1,"readerId":2,"expectedReturnDate":"2026-07-02T00:00:00Z"}' | jq
+
+# list
+curl -s http://localhost:3000/borrowings | jq
+```
+
+See the activity diagram in `docs/borrowing-crud.md` for the CRUD flow.
+
+## Database SQL
+
+The repository includes a SQL file for the project schema: `QuanLyThuVien.sql` (located in the `library-management` folder).
+
+To run the SQL on a local MySQL server (example):
+
+```bash
+# create database if needed
+mysql -u <user> -p -e "CREATE DATABASE IF NOT EXISTS QuanLyThuVien;"
+
+# import schema (runs statements in the SQL file)
+mysql -u <user> -p QuanLyThuVien < QuanLyThuVien.sql
+```
+
+Adjust `<user>`/password and host as needed for your environment.
+
+

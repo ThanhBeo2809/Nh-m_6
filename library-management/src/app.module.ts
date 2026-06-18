@@ -16,6 +16,7 @@ import { BorrowingModule } from './borrowing/borrowing.module';
       synchronize: true,
     }),
     BooksModule,
+    BorrowingModule,
   ],
 })
 export class AppModule {}
